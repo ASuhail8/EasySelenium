@@ -7,7 +7,11 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -35,7 +39,8 @@ public class BaseTest {
 		}
 
 	}
-	//Method to initialize driver using before method
+
+	// Method to initialize driver using before method
 	@BeforeMethod
 	public static void initialization() {
 		System.setProperty(chromeKey, chromeValue);
@@ -51,10 +56,33 @@ public class BaseTest {
 		}
 	}
 
-	//Method to close the driver using After method
+	// Method to close the driver using After method
 	@AfterMethod
 	public static void tearDown() {
 		driver.close();
+	}
+
+	/**
+	 * Check for the title
+	 * 
+	 * @param title
+	 */
+	public static void verifyTitle(String title) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.titleIs(title));
+	}
+
+	/**
+	 * Verify Element
+	 * 
+	 * @param element
+	 */
+	public static void verifyElement(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		if (!element.isDisplayed()) {
+			System.out.println("Element " + element.getText() + " is not found");
+		}
 	}
 
 }

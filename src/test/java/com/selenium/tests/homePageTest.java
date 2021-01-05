@@ -21,6 +21,7 @@ public class homePageTest extends BaseTest {
 	public void checkHomePageToggle() {
 		homePage = new HomePage();
 		homePage = homePage.closePopUp();
+		verifyTitle(prop.getProperty("homePageTitle"));
 		homePage.checkSeleniumToggle();
 	}
 

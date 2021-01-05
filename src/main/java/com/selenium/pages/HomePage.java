@@ -1,8 +1,5 @@
 package com.selenium.pages;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,8 +31,7 @@ public class HomePage extends BaseTest {
 	 * @return HomePage
 	 */
 	public HomePage checkSeleniumToggle() {
-		String text = seleniumToggleLabel.getText();
-		Assert.assertEquals("Selenium Easy", text);
+		verifyElement(seleniumToggleLabel);
 		return new HomePage();
 	}
 

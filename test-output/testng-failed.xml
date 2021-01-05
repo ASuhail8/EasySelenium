@@ -6,7 +6,7 @@
       <class name="com.selenium.tests.homePageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="checkBoxTest"/>
+          <include name="checkHomePageToggle"/>
           <include name="initialization"/>
         </methods>
       </class> <!-- com.selenium.tests.homePageTest -->
